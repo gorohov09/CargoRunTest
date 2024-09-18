@@ -29,7 +29,6 @@ namespace Library.WebAPI.Controllers
         [Permission(Privileges.CreateUser)]
         public async Task<CreateUserResponse> CreateUserAsync(
             [FromServices] IMediator mediator,
-            [FromServices] IAuthorizationService authorizationService,
             [FromBody] CreateUserRequest request,
             CancellationToken cancellationToken)
         {

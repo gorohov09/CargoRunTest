@@ -20,6 +20,7 @@ namespace Library.Data.PostgreSql.Configurations
         public void Configure(EntityTypeBuilder<TEntity> builder)
         {
             ConfigureId(builder);
+            ConfigureChild(builder);
         }
 
         /// <summary>

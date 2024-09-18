@@ -19,5 +19,30 @@
         /// Установление пароля
         /// </summary>
         SetPassword = 3,
+
+        /// <summary>
+        /// Создание книги
+        /// </summary>
+        CreateBook = 10,
+
+        /// <summary>
+        /// Забронировать книгу
+        /// </summary>
+        BlockBook = 11,
+
+        /// <summary>
+        /// Выдать книгу
+        /// </summary>
+        GiveBook = 12,
+
+        /// <summary>
+        /// Получить книгу
+        /// </summary>
+        TakeBook = 13,
+
+        /// <summary>
+        /// Снять бронь с книги
+        /// </summary>
+        CancelBook = 14,
     }
 }

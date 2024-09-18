@@ -40,9 +40,15 @@ namespace Library.Domain.Enums
 
                 [LibrarianId] = new()
                 {
+                    Privileges.CreateBook,
+                    Privileges.GiveBook,
+                    Privileges.TakeBook,
+
                 },
                 [ClientId] = new()
                 {
+                    Privileges.BlockBook,
+                    Privileges.CancelBook,
                 },
             };
     }

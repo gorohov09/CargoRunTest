@@ -6,7 +6,7 @@ using Library.Data.PostgreSql.Extensions;
 namespace Library.Data.PostgreSql.Configurations
 {
     /// <summary>
-	/// Конфигурация для <see cref="MyPortfolio"/>
+	/// Конфигурация для <see cref="User"/>
 	/// </summary>
 	internal class UserConfiguration : EntityBaseConfiguration<User>
     {
@@ -41,7 +41,21 @@ namespace Library.Data.PostgreSql.Configurations
                 .HasPrincipalKey(y => y!.Id)
                 .OnDelete(DeleteBehavior.ClientCascade);
 
+            builder.HasMany(x => x.BlockedBooks)
+                .WithOne(x => x.BlockedUser)
+                .HasForeignKey(x => x.BlockedUserId)
+                .HasPrincipalKey(y => y!.Id)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
+            builder.HasMany(x => x.GivenBooks)
+                .WithOne(x => x.PickedUser)
+                .HasForeignKey(x => x.PickedUserId)
+                .HasPrincipalKey(y => y!.Id)
+                .OnDelete(DeleteBehavior.ClientCascade);
+
             builder.SetPropertyAccessModeField(x => x.Role, User.RoleField);
+            builder.SetPropertyAccessModeField(x => x.BlockedBooks, User.BlockedBooksField);
+            builder.SetPropertyAccessModeField(x => x.GivenBooks, User.GivenBooksField);
         }
     }
 }

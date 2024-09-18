@@ -8,6 +8,16 @@ namespace Library.Domain.Entities
     public class User : EntityBase
     {
         /// <summary>
+		/// Поле для <see cref="_blockedBooks"/>
+		/// </summary>
+		public const string BlockedBooksField = nameof(_blockedBooks);
+
+        /// <summary>
+		/// Поле для <see cref="_givenBooks"/>
+		/// </summary>
+		public const string GivenBooksField = nameof(_givenBooks);
+
+        /// <summary>
 		/// Поле для <see cref="_role"/>
 		/// </summary>
 		public const string RoleField = nameof(_role);
@@ -17,6 +27,8 @@ namespace Library.Domain.Entities
         private string _email = default!;
         private string _passwordHash = default!;
         private Role? _role;
+        private List<Book>? _blockedBooks;
+        private List<Book>? _givenBooks;
 
         /// <summary>
         /// Конструктор
@@ -107,6 +119,16 @@ namespace Library.Domain.Entities
                 RoleId = value.Id;
             }
         }
+
+        /// <summary>
+        /// Забронированные книги пользователя
+        /// </summary>
+        public IReadOnlyList<Book>? BlockedBooks => _blockedBooks;
+
+        /// <summary>
+        /// Выданные книги пользователю
+        /// </summary>
+        public IReadOnlyList<Book>? GivenBooks => _givenBooks;
 
         #endregion
     }

@@ -31,6 +31,26 @@ namespace Library.Data.PostgreSql
 		/// </summary>
         public DbSet<Role> Roles { get; set; }
 
+        /// <summary>
+        /// Жанры
+        /// </summary>
+        public DbSet<Genre> Genres { get; set; }
+
+        /// <summary>
+        /// Авторы
+        /// </summary>
+        public DbSet<Author> Authors { get; set; }
+
+        /// <summary>
+        /// Издатели
+        /// </summary>
+        public DbSet<Publisher> Publishers { get; set; }
+
+        /// <summary>
+        /// Книги
+        /// </summary>
+        public DbSet<Book> Books { get; set; }
+
         /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

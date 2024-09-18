@@ -40,6 +40,7 @@ namespace Library.Core.Services
             await SeedRolesPrivilegesAsync(dbContext, cancellationToken);
             await dbContext.SaveChangesAsync(cancellationToken);
             await SeedAdminAsync(dbContext, cancellationToken);
+            SeedBookInfoAsync(dbContext, cancellationToken);
             await dbContext.SaveChangesAsync(cancellationToken);
         }
 
@@ -108,6 +109,22 @@ namespace Library.Core.Services
                 return;
 
             await dbContext.Users.AddRangeAsync(user);
+        }
+
+        private void SeedBookInfoAsync(IDbContext dbContext, CancellationToken cancellationToken)
+        {
+            var genre = new Genre(
+                name: "Детектив");
+
+            var publisher = new Publisher(
+                name: "Юный следопыт");
+
+            var author = new Author(
+                name: "Артур Конан Дойл");
+
+            dbContext.Genres.AddRange(genre);
+            dbContext.Publishers.AddRange(publisher);
+            dbContext.Authors.AddRange(author);
         }
 
         private static string GetDefaultValueDescription(string fieldName, Type enumWithDefaultValue)

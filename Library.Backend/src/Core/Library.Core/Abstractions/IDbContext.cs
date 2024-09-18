@@ -19,6 +19,26 @@ namespace Library.Core.Abstractions
         DbSet<Role> Roles { get; }
 
         /// <summary>
+        /// Жанры
+        /// </summary>
+        DbSet<Genre> Genres { get; }
+
+        /// <summary>
+        /// Авторы
+        /// </summary>
+        DbSet<Author> Authors { get; }
+
+        /// <summary>
+        /// Издатели
+        /// </summary>
+        DbSet<Publisher> Publishers { get; }
+        
+        /// <summary>
+        /// Книги
+        /// </summary>
+        DbSet<Book> Books { get; }
+
+        /// <summary>
 		/// Сохранить изменения в БД
 		/// </summary>
 		/// <param name="cancellationToken">Токен отмены</param>
